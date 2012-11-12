@@ -168,7 +168,6 @@ const JobNotificationSource = new Lang.Class({
 	// set jenkins logo for notification source icon
     createNotificationIcon: function() {
         return new St.Icon({ icon_name: 'jenkins_headshot',
-                             icon_type: St.IconType.FULLCOLOR,
                              icon_size: ICON_SIZE_INDICATOR });
     },
 
@@ -191,7 +190,6 @@ const ServerPopupMenuItem = new Lang.Class({
         
         this.box = new St.BoxLayout({ style_class: 'popup-combobox-item' });
         this.icon = new St.Icon({   icon_name: 'jenkins_headshot',
-                                    icon_type: St.IconType.FULLCOLOR,
                                     icon_size: ICON_SIZE_INDICATOR,
                                     style_class: "system-status-icon" });
         this.label = new St.Label({ text: this.settings.name });
@@ -238,13 +236,11 @@ const JobPopupMenuItem = new Lang.Class({
 
 		// icon representing job state
         this.icon = new St.Icon({ 	icon_name: jobStates.getIcon(job.color, this.settings.green_balls_plugin),
-                                	icon_type: St.IconType.FULLCOLOR,
                                 	icon_size: ICON_SIZE_INDICATOR,
                                 	style_class: "system-status-icon" });
 	
 		// button used to trigger the job
         this.icon_build = new St.Icon({ icon_name: 'jenkins_clock',
-                                		icon_type: St.IconType.FULLCOLOR,
                                 		icon_size: ICON_SIZE_INDICATOR,
                                 		style_class: "system-status-icon" });
 
@@ -306,7 +302,6 @@ const JobPopupMenuItem = new Lang.Class({
 		    let notification = new MessageTray.Notification(this.notification_source, _('Job finished building'), _('Your Jenkins job %s just finished building (<b>%s</b>).').format(job.name, jobStates.getName(job.color)), {
 		    	bannerMarkup: true,
 		    	icon: new St.Icon({ icon_name: jobStates.getIcon(job.color, this.settings.green_balls_plugin),
-                                	icon_type: St.IconType.FULLCOLOR,
                                 	icon_size: ICON_SIZE_NOTIFICATION,
                                 	style_class: "system-status-icon" })
 		    });
@@ -444,7 +439,6 @@ const JenkinsIndicator = new Lang.Class({
     	
 		// start off with a blue overall indicator
         this._iconActor = new St.Icon({ icon_name: jobStates.getIcon(jobStates.getDefaultState(), this.settings.green_balls_plugin),
-                                        icon_type: St.IconType.FULLCOLOR,
                                         icon_size: ICON_SIZE_INDICATOR,
                                         style_class: "system-status-icon" });
         this.actor.add_actor(this._iconActor);
