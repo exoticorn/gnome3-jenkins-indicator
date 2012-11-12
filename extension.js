@@ -156,7 +156,7 @@ const JobNotificationSource = new Lang.Class({
 
     _init: function(title) {
     	// set notification source title
-        this.parent(title);
+        this.parent(title, 'jenkins_headshot');
 
 		// set notification source icon
         this._setSummaryIcon(this.createNotificationIcon());
