@@ -28,7 +28,7 @@ const ServerPopupMenuItem = new Lang.Class({
 
         this.box.add(this.icon);
         this.box.add(this.label);
-        this.addActor(this.box);
+        this.actor.add_child(this.box);
         
         // clicking the server menu item opens the servers web frontend with default browser
         this.connect("activate", Lang.bind(this, function(){

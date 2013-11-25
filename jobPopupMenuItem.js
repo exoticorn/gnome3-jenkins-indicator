@@ -70,10 +70,10 @@ const JobPopupMenuItem = new Lang.Class({
 
         this.box.add(this.icon);
         this.box.add(this.label);
-        this.addActor(this.box);
+        this.actor.add_child(this.box);
 
 		// let the build button use the rest of the box and align it to the right
-		this.addActor(this.button_build, {span: -1, align: St.Align.END});
+		this.actor.add_child(this.button_build, {span: -1, align: St.Align.END});
         
         // clicking a job menu item opens the job in web frontend with default browser
         this.connect("activate", Lang.bind(this, function(){
